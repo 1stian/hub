@@ -1,6 +1,7 @@
 package com.ohneemc.hub;
 
 import de.leonhard.storage.Json;
+import de.leonhard.storage.Toml;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -10,8 +11,8 @@ import java.util.HashMap;
 
 public class Hub extends JavaPlugin {
 
-    private Json data;
-    Json settings(){ return data;}
+    private Toml data = new Toml("locations", getDataFolder().toString());
+    Toml settings(){ return data;}
 
     private HashMap<String, Location> locs = new HashMap<>();
     HashMap<String, Location> location() {return  locs;}
@@ -23,8 +24,7 @@ public class Hub extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getServer().getLogger().info("Starting Hub " + this.getDescription().getVersion());
-        this.getServer().getLogger().info("Author: Stian '1stian' Tofte");
+        this.getServer().getLogger().info("[Hub] Author: Stian '1stian' Tofte");
 
         Metrics metrics = new Metrics(this);
 
@@ -32,11 +32,13 @@ public class Hub extends JavaPlugin {
         registerListeners();
         loadLocations();
 
-        this.getServer().getLogger().info("Hub enabled!");
+        this.getServer().getLogger().info("[Hub] enabled!");
+
     }
 
     private void registerCommands(){
-        this.getCommand("sethub").setExecutor(new commandSethub(this));
+        this.getCommand("hub").setExecutor(new CommandHub(this));
+        this.getCommand("sethub").setExecutor(new CommandSethub(this));
     }
 
     private void registerListeners(){
@@ -46,7 +48,7 @@ public class Hub extends JavaPlugin {
     private void loadLocations(){
         //Loading hub...
         //First check if hub has been set.
-        if (settings().getString("hub") != null){
+        if (settings().contains("hub")){
             double x = settings().getDouble("hub.x");
             double y = settings().getDouble("hub.y");
             double z = settings().getDouble("hub.z");
@@ -55,12 +57,12 @@ public class Hub extends JavaPlugin {
             World world = this.getServer().getWorld("hub.world");
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("hub", loc);
-            this.getServer().getLogger().info("Hub has been loaded.");
+            this.getServer().getLogger().info("[Hub] Hub has been loaded.");
         }else{
-            this.getServer().getLogger().info("Hub has not been set yet.");
+            this.getServer().getLogger().info("[Hub] Hub has not been set yet.");
         }
 
-        if (settings().getString("shop") != null){
+        if (settings().contains("shop")){
             double x = settings().getDouble("shop.x");
             double y = settings().getDouble("shop.y");
             double z = settings().getDouble("shop.z");
@@ -69,12 +71,12 @@ public class Hub extends JavaPlugin {
             World world = this.getServer().getWorld("shop.world");
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("shop", loc);
-            this.getServer().getLogger().info("shop has been loaded.");
+            this.getServer().getLogger().info("[Hub] shop has been loaded.");
         }else{
-            this.getServer().getLogger().info("shop has not been set yet.");
+            this.getServer().getLogger().info("[Hub] shop has not been set yet.");
         }
 
-        if (settings().getString("bed") != null){
+        if (settings().contains("bed")){
             double x = settings().getDouble("bed.x");
             double y = settings().getDouble("bed.y");
             double z = settings().getDouble("bed.z");
@@ -83,12 +85,12 @@ public class Hub extends JavaPlugin {
             World world = this.getServer().getWorld("bed.world");
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("bed", loc);
-            this.getServer().getLogger().info("bed has been loaded.");
+            this.getServer().getLogger().info("[Hub] bed has been loaded.");
         }else{
-            this.getServer().getLogger().info("bed has not been set yet.");
+            this.getServer().getLogger().info("[Hub] bed has not been set yet.");
         }
 
-        if (settings().getString("enchant") != null){
+        if (settings().contains("enchant")){
             double x = settings().getDouble("enchant.x");
             double y = settings().getDouble("enchant.y");
             double z = settings().getDouble("enchant.z");
@@ -97,9 +99,9 @@ public class Hub extends JavaPlugin {
             World world = this.getServer().getWorld("enchant.world");
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("enchant", loc);
-            this.getServer().getLogger().info("enchant has been loaded.");
+            this.getServer().getLogger().info("[Hub] enchant has been loaded.");
         }else{
-            this.getServer().getLogger().info("enchant has not been set yet.");
+            this.getServer().getLogger().info("[Hub] enchant has not been set yet.");
         }
     }
 }
