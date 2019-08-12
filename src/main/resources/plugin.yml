@@ -1,0 +1,13 @@
+name: Hub
+version: "1.0"
+author: Stian "1stian" Tofte
+website: https://ohneemc.com
+main: com.ohneemc.hub.Hub
+api-version: "1.14"
+prefix: Hub
+commands:
+  hub:
+    description: Teleports you to the server hub
+    usage: /hub
+    permission: hub.hub
+    permission-message: You do not have access to this command /hub.
