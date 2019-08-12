@@ -7,7 +7,12 @@ api-version: "1.14"
 prefix: Hub
 commands:
   hub:
-    description: Teleports you to the server hub
+    description: Teleports you to the server hub.
     usage: /hub
     permission: hub.hub
-    permission-message: You do not have access to this command /hub.
+    permission-message: You do not have access to t his command /hub.
+  sethub:
+    description: Set hub location to your location.
+    usage: /sethub
+    permission: hub.sethub
+    permission-message: You do not have access to this command /sethub.
