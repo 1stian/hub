@@ -39,6 +39,12 @@ public class Hub extends JavaPlugin {
     private void registerCommands(){
         this.getCommand("hub").setExecutor(new CommandHub(this));
         this.getCommand("sethub").setExecutor(new CommandSethub(this));
+        this.getCommand("bed").setExecutor(new CommandBed(this));
+        this.getCommand("setbed").setExecutor(new CommandSetBed(this));
+        this.getCommand("shop").setExecutor(new CommandShop(this));
+        this.getCommand("setshop").setExecutor(new CommandSetshop(this));
+        this.getCommand("enchant").setExecutor(new CommandEnchant(this));
+        this.getCommand("setenchant").setExecutor(new CommandSetenchant(this));
     }
 
     private void registerListeners(){
