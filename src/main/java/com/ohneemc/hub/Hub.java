@@ -68,7 +68,7 @@ public class Hub extends JavaPlugin {
             double z = settings().getDouble("shop.z");
             float pitch = settings().getFloat("shop.pitch");
             float yaw = settings().getFloat("shop.yaw");
-            World world = this.getServer().getWorld("shop.world");
+            World world = this.getServer().getWorld(settings().getString("shop.world"));
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("shop", loc);
             this.getServer().getLogger().info("[Hub] shop has been loaded.");
@@ -82,7 +82,7 @@ public class Hub extends JavaPlugin {
             double z = settings().getDouble("bed.z");
             float pitch = settings().getFloat("bed.pitch");
             float yaw = settings().getFloat("bed.yaw");
-            World world = this.getServer().getWorld("bed.world");
+            World world = this.getServer().getWorld(settings().getString("bed.world"));
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("bed", loc);
             this.getServer().getLogger().info("[Hub] bed has been loaded.");
@@ -96,7 +96,7 @@ public class Hub extends JavaPlugin {
             double z = settings().getDouble("enchant.z");
             float pitch = settings().getFloat("enchant.pitch");
             float yaw = settings().getFloat("enchant.yaw");
-            World world = this.getServer().getWorld("enchant.world");
+            World world = this.getServer().getWorld(settings().getString("enchant.world"));
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("enchant", loc);
             this.getServer().getLogger().info("[Hub] enchant has been loaded.");
