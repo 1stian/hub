@@ -54,7 +54,7 @@ public class Hub extends JavaPlugin {
             double z = settings().getDouble("hub.z");
             float pitch = settings().getFloat("hub.pitch");
             float yaw = settings().getFloat("hub.yaw");
-            World world = this.getServer().getWorld("hub.world");
+            World world = this.getServer().getWorld(settings().getString("hub.world"));
             Location loc = new Location(world, x, y,z,yaw,pitch);
             location().put("hub", loc);
             this.getServer().getLogger().info("[Hub] Hub has been loaded.");

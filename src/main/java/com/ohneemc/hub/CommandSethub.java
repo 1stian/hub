@@ -53,7 +53,7 @@ public class CommandSethub implements CommandExecutor {
 
             plugin.settings().set("hub.x", x);
             plugin.settings().set("hub.y", y);
-            plugin.settings().set("hub.x", x);
+            plugin.settings().set("hub.z", z);
             plugin.settings().set("hub.pitch", pitch);
             plugin.settings().set("hub.yaw", yaw);
             plugin.settings().set("hub.world", world.getName());
