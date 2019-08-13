@@ -16,3 +16,54 @@ commands:
     usage: /sethub
     permission: hub.sethub
     permission-message: You do not have access to this command /sethub.
+  bed:
+    description: Teleports you to bed location.
+    usage: /bed
+    permission: hub.bed
+    permission-message: You do not have access to t his command /bed.
+  setbed:
+    description: Set bed location to your location.
+    usage: /setbed
+    permission: hub.setbed
+    permission-message: You do not have access to this command /setbed.
+  shop:
+    description: Teleports you to the server shop.
+    usage: /shop
+    permission: hub.shop
+    permission-message: You do not have access to t his command /shop.
+  setshop:
+    description: Set shop location to your location.
+    usage: /setshop
+    permission: hub.setshop
+    permission-message: You do not have access to this command /setshop.
+  enchant:
+    description: Teleports you to the server enchant location.
+    usage: /enchant
+    permission: hub.enchant
+    permission-message: You do not have access to t his command /enchant.
+  setenchant:
+    description: Set enchant location to your location.
+    usage: /setenchant
+    permission: hub.setenchant
+    permission-message: You do not have access to this command /setenchant.
+permissions:
+  hub.admin:
+    default: false
+    description: Access to every command in Hub.
+    children:
+      hub.hub: true
+      hub.setshub: true
+      hub.bed: true
+      hub.setbed: true
+      hub.shop: true
+      hub.setshop: true
+      hub.enchant: true
+      hub.setenchant: true
+  hub.use:
+    default: false
+    description: Access to all the basic uses of Hub.
+    children:
+      hub.hub: true
+      hub.bed: true
+      hub.enchant: true
+      hub.shop: true
