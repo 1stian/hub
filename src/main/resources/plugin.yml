@@ -19,6 +19,7 @@ commands:
   bed:
     description: Teleports you to bed location.
     usage: /bed
+    aliases: [sleep]
     permission: hub.bed
     permission-message: You do not have access to t his command /bed.
   setbed:
